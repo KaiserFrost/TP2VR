@@ -14,7 +14,7 @@ services:
          - ./data.sql:/docker-entrypoint-initdb.d/init.sql
          - postgres:/data/postgres
       ports:
-        - "6543:6543"
+        - "6543:5432"
       networks:
         - postgres
       restart: unless-stopped
