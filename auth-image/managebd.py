@@ -21,7 +21,7 @@ def RegisterUser(username, password,email, isAdmin):
 
     try:
         
-        conn = psycopg2.connect("dbname=" + DBNAME + " user=" + DBUSER + " host=" + HOST + " password=" +DBPASSWORD)
+        conn = psycopg2.connect("dbname=" + DBNAME + " user=" + DBUSER + " host=" + HOST + " port=" + PORT  + " password=" +DBPASSWORD)
         cur = conn.cursor()
         cur.execute(query, (username,password,email,isAdmin))
         conn.commit()
@@ -43,7 +43,7 @@ def VerifyUser(username,password):
     query = "select * from clients where \"username\"='" + username + "' and \"password\"='" + password + "'"
     insertoken = """Update clients set token= %s where username= %s"""
     try:
-        conn = psycopg2.connect("dbname=" + DBNAME + " user=" + DBUSER + " host=" + HOST  + " password=" +DBPASSWORD)
+        conn = psycopg2.connect("dbname=" + DBNAME + " user=" + DBUSER + " host=" + HOST + " port=" + PORT  + " password=" +DBPASSWORD)
         cur = conn.cursor()
         cur.execute(query)
         
