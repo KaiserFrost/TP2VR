@@ -1,11 +1,5 @@
-FROM python:latest
+FROM ubuntu:18.04
 
-WORKDIR /usr/local/bin
-
-COPY httpf.py ./
-
-RUN python -m pip install --upgrade pip
-
-RUN pip install requests
-
-RUN python3 httpf.py
+COPY docker-entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+ENTRYPOINT ["docker-entrypoint.sh"]

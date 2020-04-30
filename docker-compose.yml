@@ -7,7 +7,7 @@ services:
       image: postgres
       environment:
         POSTGRES_USER: ${POSTGRES_USER:-postgres}
-        POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+        POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-123qweasd}
         POSTGRES_DB: ${POSTGRES_DB:-fileserverbd}
         PGDATA: /data/postgres
       volumes:
@@ -19,22 +19,30 @@ services:
         - postgres
       restart: unless-stopped
     auth-service:
-      image: auth/auth:1.0
+      image: auth:1.0
       networks:
         - postgres
         - httpnetwork
       ports: 
         - "5001:5001"
     httpservice:
-      image: httpserver/httpserver:1.0
+      image: http:1.0
       networks: 
         - httpnetwork
       ports: 
         - "8001:8001"
+    ftpservice:
+      image: ftp:1.0
+      networks:
+        - ftpnetwork
+      ports:
+        - "21:21"
+       
 networks: 
     postgres:
       driver: bridge
     httpnetwork:
+    ftpnetwork:
 volumes:
   postgres:
   
