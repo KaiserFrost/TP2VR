@@ -8,14 +8,14 @@ import os
 import time
 from os import path
 
-PORT = 8012
+PORT = 8001
 
 
 class HttpRequestHandler(http.server.SimpleHTTPRequestHandler):
 
     def redirect(self):
                     self.send_response(303)
-                    self.send_header('Location','http://0.0.0.0:5001/login?Referer=http://localhost:'+str(PORT))
+                    self.send_header('Location','http://0.0.0.0:5001/login?Referer=http://0.0.0.0:'+str(PORT))
                     self.end_headers()
     def do_GET(self):
 
@@ -57,5 +57,5 @@ class HttpRequestHandler(http.server.SimpleHTTPRequestHandler):
 handler = HttpRequestHandler
 
 with socketserver.TCPServer(("0.0.0.0", PORT), handler) as httpd:
-    print("Server started at localhost:" + str(PORT))
+    print("Server started at 0.0.0.0:" + str(PORT))
     httpd.serve_forever()

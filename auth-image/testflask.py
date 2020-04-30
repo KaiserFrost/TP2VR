@@ -23,7 +23,7 @@ def login():
         token = managebd.encode_token(username)
         if verifyuser == True:
             query_parameters = parse_qs(urlparse(request.referrer).query)
-            if('token' not in query_parameters):
+            if('Referer' not in query_parameters):
                 return token
             else:
                 referer = query_parameters['Referer'][0]
