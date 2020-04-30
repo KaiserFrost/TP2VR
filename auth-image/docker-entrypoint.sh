@@ -12,5 +12,6 @@ cd TP2VR/auth-image/
 #pip3 install Flask
 #pip3 install pyjwt
 #pip3 install python-dotenv
+apt update
 pip3 install -r requirements.txt
 python3 testflask.py

@@ -6,5 +6,6 @@ apt -y install python3.7
 apt -y install python3-pip
 git clone https://github.com/KaiserFrost/TP2VR.git
 cd TP2VR/http-image/
+apt update
 pip3 install -r requirements.txt
 python3 httpf.py
