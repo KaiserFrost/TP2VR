@@ -23,6 +23,7 @@ services:
       networks:
         - postgres
         - httpnetwork
+        - ftpnetwork
       ports: 
         - "5001:5001"
     httpservice:
@@ -30,7 +31,7 @@ services:
       networks: 
         - httpnetwork
       ports: 
-        - "8012:8012"
+        - "8001:8001"
     ftpservice:
       image: ftp:1.0
       networks:
