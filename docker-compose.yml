@@ -30,7 +30,7 @@ services:
       networks: 
         - httpnetwork
       ports: 
-        - "8001:8001"
+        - "8012:8012"
     ftpservice:
       image: ftp:1.0
       networks:
