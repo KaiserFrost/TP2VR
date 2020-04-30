@@ -11,6 +11,7 @@ DBNAME = os.getenv('DBNAME')
 DBUSER = os.getenv('DBUSER')
 DBPASSWORD = os.getenv("DBPASSWORD")
 AUTHSECRET = os.getenv("AUTHSECRET")
+HOST = "0.0.0.0"
 #AUTHSECRET = os.getenv("AUTHSECRET")
 
 def RegisterUser(username, password,email, isAdmin):
@@ -18,7 +19,7 @@ def RegisterUser(username, password,email, isAdmin):
     query = "insert into clients (\"username\", \"password\",\"email\", \"IsAdmin\") values(%s,%s,%s,%s)"
 
     try:
-        conn = psycopg2.connect("dbname=" + DBNAME + " user=" + DBUSER +" password=" +DBPASSWORD)
+        conn = psycopg2.connect("dbname=" + DBNAME + " user=" + DBUSER + " host=" + HOST + " password=" +DBPASSWORD)
         cur = conn.cursor()
         cur.execute(query, (username,password,email,isAdmin))
         conn.commit()
