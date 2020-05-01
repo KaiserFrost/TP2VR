@@ -11,7 +11,7 @@ services:
         POSTGRES_DB: ${POSTGRES_DB:-fileserverbd}
         PGDATA: /data/postgres
       volumes:
-         - ./data.sql:/docker-entrypoint-initdb.d/init.sql
+         - ./init:/docker-entrypoint-initdb.d/
          - postgres:/data/postgres
       ports:
         - "6543:5432"
