@@ -19,6 +19,7 @@ services:
         - postgres
       restart: unless-stopped
     auth-service:
+      container_name: auth_container
       image: auth:1.0
       networks:
         - postgres
@@ -27,12 +28,14 @@ services:
       ports: 
         - "5001:5001"
     httpservice:
+      container_name: http_container
       image: http:1.0
       networks: 
         - httpnetwork
       ports: 
         - "8001:8001"
     ftpservice:
+      container_name: ftp_container
       image: ftp:1.0
       networks:
         - ftpnetwork
@@ -43,7 +46,9 @@ networks:
     postgres:
       driver: bridge
     httpnetwork:
+      driver: bridge
     ftpnetwork:
+      driver: bridge
 volumes:
   postgres:
   

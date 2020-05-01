@@ -15,7 +15,7 @@ class HttpRequestHandler(http.server.SimpleHTTPRequestHandler):
 
     def redirect(self):
                     self.send_response(303)
-                    self.send_header('Location','http://0.0.0.0:5001/login?Referer=http://0.0.0.0:'+str(PORT))
+                    self.send_header('Location','http://auth_container:5001/login?Referer=http://0.0.0.0:'+str(PORT))
                     self.end_headers()
     def do_GET(self):
 
@@ -36,7 +36,7 @@ class HttpRequestHandler(http.server.SimpleHTTPRequestHandler):
                     else:
                         usertoken = query_parameters["token"][0]
                         #usertoken = bytes.fromhex(usertoken)
-                        x = requests.get("http://0.0.0.0:5001/verify?token="+usertoken)
+                        x = requests.get("http://auth_container:5001/verify?token="+usertoken)
                         if x.text == "true":
                             with open("testfile.txt","w") as file:
                                   file.write(usertoken)

@@ -4,7 +4,7 @@ CREATE TABLE public.clients
     "username" VARCHAR (128) UNIQUE NOT NULL,
     "password" VARCHAR (256) NOT NULL,
     "Token" VARCHAR (256) ,
-    "email" VARCHAR (355) UNIQUE NOT NULL
+    "email" VARCHAR (355) UNIQUE NOT NULL,
     "IsAdmin" boolean NOT NULL,
     PRIMARY KEY ("Id")
 )
