@@ -33,6 +33,6 @@ authorizer = MyAuthorizer()
 handler = MyHandler
 handler.authorizer = authorizer
 print(authorizer)
-address = ("0.0.0.0", 21)  # listen on every IP on my machine on port 21
+address = ("", 21)  # listen on every IP on my machine on port 21
 server = servers.FTPServer(address, handler)
 server.serve_forever()
