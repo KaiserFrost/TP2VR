@@ -12,7 +12,7 @@ DBUSER = os.getenv('DBUSER')
 DBPASSWORD = os.getenv("DBPASSWORD")
 AUTHSECRET = os.getenv("AUTHSECRET")
 HOST = "postgres_container"
-PORT = "6543"
+PORT = "5432"
 #AUTHSECRET = os.getenv("AUTHSECRET")
 
 def RegisterUser(username, password,email, isAdmin):
