@@ -11,7 +11,7 @@ DBNAME = os.getenv('DBNAME')
 DBUSER = os.getenv('DBUSER')
 DBPASSWORD = os.getenv("DBPASSWORD")
 AUTHSECRET = os.getenv("AUTHSECRET")
-HOST = "0.0.0.0"
+HOST = "postgres_container"
 PORT = "6543"
 #AUTHSECRET = os.getenv("AUTHSECRET")
 
