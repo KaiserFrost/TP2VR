@@ -34,6 +34,8 @@ services:
         - httpnetwork
       ports: 
         - "8001:8001"
+      volumes:
+        - servervol:/usr/src/http
     ftpservice:
       container_name: ftp_container
       image: ftp:1.0
@@ -41,15 +43,13 @@ services:
         - ftpnetwork
       ports:
         - "21:21"
-       
+      volumes:
+        - servervol:/usr/src/ftp       
 networks: 
     postgres:
-      driver: bridge
     httpnetwork:
-      driver: bridge
     ftpnetwork:
-      driver: bridge
 volumes:
   postgres:
-  
+  servervol:
     
